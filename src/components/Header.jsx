@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function Header() {
+function Header({ onSearch }) {
+    const [city, setCity] = useState('');
+
     const handleSearch = () => {
-        // Add search functionality here
-        console.log('Searching...');
+        if (city) {
+            onSearch(city);
+        }
     };
 
     return (
@@ -17,6 +20,8 @@ function Header() {
                         type="text"
                         placeholder="Enter location..."
                         className="w-80 p-2 bg-white rounded-lg shadow-inner text-gray-800 focus:outline-none focus:ring focus:ring-indigo-300"
+                        value={city}
+                        onChange={(e) => setCity(e.target.value)}
                     />
                     <button
                         className="w-20 p-2 rounded-lg bg-gradient-to-r from-indigo-500 to-indigo-600 text-white hover:from-indigo-600 hover:to-indigo-700 focus:outline-none focus:ring focus:ring-indigo-300"
