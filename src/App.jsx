@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
 import WeatherDetails from './components/WeatherDetails';
+import WeatherDetails from './components/Footer';
 import axios from 'axios';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <div className="App">
             <Header onSearch={fetchWeatherData} />
             {weatherData && <WeatherDetails data={weatherData} />}
+            <Footer /> 
         </div>
     );
 }
